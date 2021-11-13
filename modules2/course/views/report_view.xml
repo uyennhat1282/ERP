@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+
+
+    <record id="sale_report_graph" model="ir.ui.view" >
+        <field name="name">sale.report.graph</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.view_order_product_graph"/>
+        <field name="arch" type="xml">
+             <!--<xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="string">Khóa học</attribute>
+                </xpath> -->
+            <!-- <xpath expr="//field[@name='day_order']" position="replace">
+                    <attribute name="string">Ngày đăng kí</attribute>
+                </xpath> -->
+       <!-- <field name="partner_id" position="after">  -->
+
+            <!--<field name='partner_id' position="attributes">
+                   <attribute name="string">Học viên</attribute> -->
+      <field name="date" >
+            <!--<field name="ngay_sinh"/> -->
+             <!--<field name="gioi_tinh"/> -->
+
+
+
+
+
+
+
+  <!--          <xpath expr="//field[@name='partner_id']" position="attributes"> -->
+    <!--                 <attribute name="invisible">1</attribute>  -->
+      <!--            </xpath>  -->
+        <!--        <xpath expr="//label[@for='partner_id']" position="attributes"> -->
+        <!--            <attribute name="invisible">1</attribute> -->
+       <!--           </xpath> -->
+
+        </field>
+
+
+    </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_report">
+            <field name="name">Báo cáo</field>
+            <field name="res_model">sale.report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form,pivot</field>
+
+    </record>
+
+             <menuitem id="menu_report"
+              name="Báo cáo" sequence="7"
+              parent="course_menu_root"
+              action="action_report"/>
+
+
+
+</odoo>

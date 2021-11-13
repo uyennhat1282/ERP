@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+
+    <data>
+
+
+    <record id="res_partner_form" model="ir.ui.view" >
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+             <!--<xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="string">Khóa học</attribute>
+                </xpath> -->
+            <!-- <xpath expr="//field[@name='day_order']" position="replace">
+                    <attribute name="string">Ngày đăng kí</attribute>
+                </xpath> -->
+       <!-- <field name="partner_id" position="after">  -->
+
+            <!--<field name='partner_id' position="attributes">
+                   <attribute name="string">Học viên</attribute> -->
+
+        <field name="email" position="after">
+            <!--<field name="ngay_sinh"/> -->
+             <!--<field name="gioi_tinh"/> -->
+
+
+
+
+
+
+
+  <!--          <xpath expr="//field[@name='partner_id']" position="attributes"> -->
+    <!--                 <attribute name="invisible">1</attribute>  -->
+      <!--            </xpath>  -->
+        <!--        <xpath expr="//label[@for='partner_id']" position="attributes"> -->
+        <!--            <attribute name="invisible">1</attribute> -->
+       <!--           </xpath> -->
+
+        </field>
+
+
+    </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_student">
+            <field name="name">Học viên</field>
+            <field name="res_model">res.partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form,pivot</field>
+
+    </record>
+
+             <menuitem id="menu_student"
+              name="Học viên" sequence="4"
+              parent="course_menu_root"
+              action="action_student"/>
+
+</data>
+
+</odoo>

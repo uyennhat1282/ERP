@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+
+        <!-- Action -->
+            <record id="feedback_view" model="ir.ui.view">
+            <field name="name">feedback.view</field>
+            <field name="model">feedback</field>
+            <field name="arch" type="xml">
+                 <tree string="Course">
+          <!--               <field name="name" widget="res_partner_many2one"
+                                context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}"
+                                options="{&quot;always_reload&quot;: True}"/> -->
+
+                            <field name="name"  optional="show"  />
+                            <field name="id_name"  optional="show"  />
+                            <field name="id_cart"  optional="show"  />
+                            <field name="fb"  optional="show" />
+
+                 </tree>
+            </field>
+        </record>
+         <record id="feedback" model="ir.actions.act_window">
+            <field name="name">Phản hồi khóa học</field>
+             <field name="type">ir.actions.act_window</field>
+            <field name="res_model">feedback</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tạo phản hồi!
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_fb"
+              name="Phản hồi khóa học" sequence="6"
+              parent="course_menu_root"
+              action="feedback"/>
+    </data>
+</odoo>

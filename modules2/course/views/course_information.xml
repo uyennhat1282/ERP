@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+         <!-- Top menu item -->
+<!--        <menuitem id="school_menu_root"-->
+<!--            name="Trường học"-->
+<!--            active="False"-->
+<!--            sequence="7"/>-->
+
+<!--        <menuitem id="school_information_menu"-->
+<!--            name="Thông tin trường học"-->
+<!--            parent="school_menu_root"-->
+<!--            action="school_information"-->
+<!--            sequence="2"/>-->
+
+
+
+
+        <!-- Action -->
+            <record id="course_information_form_view" model="ir.ui.view">
+            <field name="name">Course Information Form</field>
+            <field name="model">course.information</field>
+            <field name="arch" type="xml">
+                 <tree string="Course">
+                            <field name="name" optional="show" />
+                            <field name="type_course"  optional="show"  />
+                            <field name="course_image"  optional="show"  />
+                            <field name="teacher"  optional="show" />
+                            <field name="day"  optional="show" />
+                            <field name="time"  optional="show" />
+                            <field name="tuition"  optional="show" />
+                 </tree>
+            </field>
+        </record>
+         <record id="course_information" model="ir.actions.act_window">
+            <field name="name">Thông tin khóa học</field>
+             <field name="type">ir.actions.act_window</field>
+            <field name="res_model">course.information</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tạo khóa học mới!
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="course_menu_root"
+              name="Course"
+              sequence="10"/>
+    <menuitem id="course_goods_root"
+              name="Thông tin khóa học"
+              parent="course_menu_root"
+              sequence="1"/>
+    <menuitem id="course_goods"
+              name="Thông tin khóa học"
+              parent="course_goods_root"
+              action="course_information"
+              sequence="1"/>
+    </data>
+</odoo>

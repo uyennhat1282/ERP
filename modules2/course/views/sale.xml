@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+
+    <data>
+
+
+    <record id="sale_order_form_inherit" model="ir.ui.view" >
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="string">Học viên</attribute>
+                </xpath>
+            <!-- <xpath expr="//field[@name='day_order']" position="replace">
+                    <attribute name="string">Ngày đăng kí</attribute>
+                </xpath> -->
+       <!-- <field name="partner_id" position="after">  -->
+
+            <!--<field name='partner_id' position="attributes">
+                   <attribute name="string">Học viên</attribute> -->
+
+        <field name="partner_id" position="after">
+
+             <field name="id_cart"/>
+              <field name="phone"/>
+
+
+
+
+
+
+  <!--          <xpath expr="//field[@name='partner_id']" position="attributes"> -->
+    <!--                 <attribute name="invisible">1</attribute>  -->
+      <!--            </xpath>  -->
+        <!--        <xpath expr="//label[@for='partner_id']" position="attributes"> -->
+        <!--            <attribute name="invisible">1</attribute> -->
+       <!--           </xpath> -->
+
+        </field>
+
+
+    </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_sale">
+            <field name="name">Đăng kí</field>
+            <field name="res_model">sale.order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form,pivot</field>
+
+    </record>
+
+             <menuitem id="menu_dki"
+              name="Đăng Kí" sequence="3"
+              parent="course_menu_root"
+              action="action_sale"/>
+
+</data>
+
+</odoo>
