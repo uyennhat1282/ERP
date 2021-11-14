@@ -1,64 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <odoo>
-
-
     <data>
-
-
-    <record id="res_partner_form" model="ir.ui.view" >
-        <field name="name">res.partner.form</field>
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
+    <record id="hr_employee_form" model="ir.ui.view" >
+        <field name="name">	hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-             <!--<xpath expr="//field[@name='partner_id']" position="attributes">
-                    <attribute name="string">Khóa học</attribute>
-                </xpath> -->
-            <!-- <xpath expr="//field[@name='day_order']" position="replace">
-                    <attribute name="string">Ngày đăng kí</attribute>
-                </xpath> -->
-       <!-- <field name="partner_id" position="after">  -->
+        <!--add -->
+                <xpath expr="//field[@name='work_email']" position="after">
+                    <field name="chung_chi"/>
+                </xpath>
 
-            <!--<field name='partner_id' position="attributes">
-                   <attribute name="string">Học viên</attribute> -->
-
-        <field name="email" position="after">
-            <!--<field name="ngay_sinh"/> -->
-             <!--<field name="gioi_tinh"/> -->
-
-
-
-
-
-
-
-  <!--          <xpath expr="//field[@name='partner_id']" position="attributes"> -->
-    <!--                 <attribute name="invisible">1</attribute>  -->
-      <!--            </xpath>  -->
-        <!--        <xpath expr="//label[@for='partner_id']" position="attributes"> -->
-        <!--            <attribute name="invisible">1</attribute> -->
-       <!--           </xpath> -->
-
-        </field>
+            <!--hide -->
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                    <attribute name="invisible">1</attribute> <!-- hide  field -->
+                </xpath>
+             <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="invisible">1</attribute> <!-- hide  field -->
+                </xpath>
+             <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name="invisible">1</attribute> <!-- hide  field -->
+                </xpath>
+             <xpath expr="//field[@name='coach_id']" position="attributes">
+                    <attribute name="invisible">1</attribute> <!-- hide  field -->
+                </xpath>
 
 
     </field>
     </record>
-
-
     <record model="ir.actions.act_window" id="action_teacher">
             <field name="name">Giảng viên</field>
-            <field name="res_model">res.partner</field>
+            <field name="res_model">hr.employee</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form,pivot</field>
-
     </record>
-
              <menuitem id="menu_teacher"
               name="Giảng viên" sequence="5"
               parent="course_menu_root"
               action="action_teacher"/>
-
 </data>
-
 </odoo>

@@ -1,66 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <odoo>
-
-
     <data>
-
-
     <record id="product_template_product_form" model="ir.ui.view" >
         <field name="name">	product.template.product.form</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
-               <!-- <xpath expr="//field[@name='partner_id']" position="attributes">
-                    <attribute name="string">Khóa học</attribute>
-                </xpath> -->
-            <!-- <xpath expr="//field[@name='day_order']" position="replace">
-                    <attribute name="string">Ngày đăng kí</attribute>
-                </xpath> -->
-       <!-- <field name="partner_id" position="after">  -->
+<!--add -->
+                <xpath expr="//field[@name='type']" position="after">
+                    <field name="description"/>
+                </xpath>
+             <xpath expr="//field[@name='description']" position="after">
+                    <field name="teacher"/>
+                </xpath>
+            <xpath expr="//field[@name='teacher']" position="after">
+                    <field name="day"/>
+                </xpath>
+            <xpath expr="//field[@name='day']" position="after">
+                    <field name="day_time"/>
+                </xpath>
+            <xpath expr="//field[@name='day_time']" position="after">
+                    <field name="time"/>
+                </xpath>
+<!--hide -->
 
-            <!--<field name='partner_id' position="attributes">
-                   <attribute name="string">Học viên</attribute> -->
-
-        <field name="type" position="after">
-            <field name="description"/>
-            <field name="teacher"/>
-            <field name="day"/>
-            <field name="time"/>
-
-
-
-
-
-
-
-  <!--          <xpath expr="//field[@name='partner_id']" position="attributes"> -->
-    <!--                 <attribute name="invisible">1</attribute>  -->
-      <!--            </xpath>  -->
-        <!--        <xpath expr="//label[@for='partner_id']" position="attributes"> -->
-        <!--            <attribute name="invisible">1</attribute> -->
-       <!--           </xpath> -->
-
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                    <attribute name="invisible">1</attribute> <!-- hide  field -->
+                </xpath>
+            <xpath expr="//label[@for='standard_price']" position="attributes">
+                    <attribute name="invisible">1</attribute> <!-- hide label field -->
+                </xpath>
+             <xpath expr="//field[@name='company_id']" position="attributes">
+                    <attribute name="invisible">1</attribute> <!-- hide  field -->
+                </xpath>
         </field>
-
-
-    </field>
     </record>
-
-
     <record model="ir.actions.act_window" id="action_product">
             <field name="name">Khóa học</field>
             <field name="res_model">product.template</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form,pivot</field>
-
     </record>
-
-             <menuitem id="menu_kh"
-              name="Khóa học" sequence="2"
+        <menuitem id="course_menu_root"
+              name="Course"
+              sequence="10"/>
+    <menuitem id="course_goods_root"
+              name=" Khóa học"
+              parent="course_menu_root"
+              sequence="1"/>
+    <menuitem id="course_goods"
+              name="Khóa học"
               parent="course_goods_root"
-              action="action_product"/>
-
+              action="action_product"
+              sequence="1"/>
 </data>
-
 </odoo>

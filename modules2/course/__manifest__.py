@@ -10,6 +10,7 @@
         "sale",
         'product',
         "base",
+        "hr",
     ],
     'data': [
         'views/course_information.xml',

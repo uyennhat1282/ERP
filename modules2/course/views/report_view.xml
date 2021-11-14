@@ -9,32 +9,8 @@
         <field name="model">sale.report</field>
         <field name="inherit_id" ref="sale.view_order_product_graph"/>
         <field name="arch" type="xml">
-             <!--<xpath expr="//field[@name='partner_id']" position="attributes">
-                    <attribute name="string">Khóa học</attribute>
-                </xpath> -->
-            <!-- <xpath expr="//field[@name='day_order']" position="replace">
-                    <attribute name="string">Ngày đăng kí</attribute>
-                </xpath> -->
-       <!-- <field name="partner_id" position="after">  -->
 
-            <!--<field name='partner_id' position="attributes">
-                   <attribute name="string">Học viên</attribute> -->
-      <field name="date" >
-            <!--<field name="ngay_sinh"/> -->
-             <!--<field name="gioi_tinh"/> -->
-
-
-
-
-
-
-
-  <!--          <xpath expr="//field[@name='partner_id']" position="attributes"> -->
-    <!--                 <attribute name="invisible">1</attribute>  -->
-      <!--            </xpath>  -->
-        <!--        <xpath expr="//label[@for='partner_id']" position="attributes"> -->
-        <!--            <attribute name="invisible">1</attribute> -->
-       <!--           </xpath> -->
+      <field name="price_subtotal" >
 
         </field>
 

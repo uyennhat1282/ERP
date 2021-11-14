@@ -6,6 +6,7 @@ class ProductTemplateInherit(models.Model):
     _inherit = 'product.template'
 
     description = fields.Text("Mô tả khóa học")
-    teacher = fields.Char("Người dạy")
-    day = fields.Date("Ngày học")
-    time = fields.Char("Giờ học")
+    teacher = fields.Many2one('hr.employee', 'Giảng viên',  required=True,)
+    day = fields.Date("Ngày bắt đầu học", required=True,)
+    day_time = fields.Char("Thời gian học", required=True,)
+    time = fields.Char("Giờ học", required=True,)
